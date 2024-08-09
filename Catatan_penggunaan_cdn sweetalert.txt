@@ -1,0 +1,21 @@
+Cara menggunakan sweet alert with cdn
+-------------------------------------
+1. Masuk website sweet alert cdn = https://cdnjs.com/libraries/sweetalert.
+2. Copy link script : 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+3. Ubah di controller menjadi  seperti ini : 
+return Redirect::route('index_makanan')->with('success','Berhasil menambahkan data!!');
+
+4. Buat perulangan if-else di luar form.
+
+  @if (Session::has('success'))
+                    <script>
+                        swal("success", "{{ Session::get('success') }}", 'success', {
+                            button: true,
+                            button: "OKE",
+                            time: 3000,
+                        });
+                    </script>
+                @endif
